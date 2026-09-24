@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "external_skills": [
+    "business-messaging-integrations",
+    "claim-verification",
+    "competitor-analysis",
+    "google-workspace",
+    "hermes-agent",
+    "humanizer-ru",
+    "remote-mcp-oauth-operations",
+    "web-analytics-architecture"
+  ],
+  "scope": "Declared host skills only; not bundled, installed, authorized or availability-tested by this validator."
+}

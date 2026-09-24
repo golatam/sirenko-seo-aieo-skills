@@ -1,0 +1,1 @@
+record_id,source_url_raw,source_url_normalized,target_url_raw,target_url_resolved,entity,kind,provider,metric_name,metric_value,metric_scale,export_scope,observed_at,first_seen_provider,checked_at,http_status,source_final_url,anchor,rel_tokens,context,robots,index_status,verification_status,evidence_locator,limitation,next_action,owner

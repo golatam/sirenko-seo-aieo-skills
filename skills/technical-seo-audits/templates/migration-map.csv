@@ -1,0 +1,1 @@
+old_url,new_url,decision,expected_status,reason,template,locale,business_priority,owner,approval_ref,staging_result,production_status,production_final_url,canonical_observed,checked_at,evidence_path,rollback_ref

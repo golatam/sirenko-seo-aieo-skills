@@ -1,0 +1,2 @@
+# Offline validator and packaging checks only; HTML/AI CLIs use the stdlib.
+PyYAML==6.0.2

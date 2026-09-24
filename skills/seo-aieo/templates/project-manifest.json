@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "project_id": null,
+  "run_id": null,
+  "lane_registry": [],
+  "canonical_domain": null,
+  "project_readme": null,
+  "mode": "baseline",
+  "segments": [],
+  "business_outcome": {"definition": null, "system_of_record": null},
+  "sources": [],
+  "rank_source": null,
+  "artifact_dir": null,
+  "limits": {"html_pages": 30, "request_interval_seconds": 1, "paid_budget": 0, "currency": null},
+  "permissions": {"external_writes": "require_confirmation", "publication": "require_confirmation", "outreach": "require_confirmation"},
+  "baseline": null,
+  "acceptance_criteria": [],
+  "unknowns": []
+}
