@@ -125,6 +125,21 @@ class PortableCLITests(unittest.TestCase):
         self.assertTrue(any('known secret-like pattern' in e for e in errors))
         self.assertTrue(any('host-specific absolute path' in e for e in errors))
 
+    def test_runner_context_rejected_before_step_scope(self):
+        import yaml
+        for scope in ('workflow', 'job'):
+            with self.subTest(scope=scope):
+                moved = self.scratch / ('invalid-context-' + scope)
+                shutil.copytree(ROOT, moved, ignore=shutil.ignore_patterns('.git', '.venv', '__pycache__', '*.pyc'))
+                workflow = moved / '.github/workflows/tests.yml'
+                data = yaml.safe_load(workflow.read_text(encoding='utf-8'))
+                target = data if scope == 'workflow' else data['jobs']['offline']
+                target.setdefault('env', {})['TMPDIR'] = '${{ runner.temp }}'
+                workflow.write_text(yaml.safe_dump(data), encoding='utf-8')
+                p = self.run_script(moved / 'scripts/check_package.py')
+                self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
+                self.assertTrue(any('runner context' in error for error in json.loads(p.stdout)['errors']))
+
     def test_offline_html_cli(self):
         source = self.scratch / 'synthetic.html'
         source.write_text('<!doctype html><html><head><title>SYNTHETIC</title></head><body><h1>Fixture</h1><a href="/next">Next</a></body></html>', encoding='utf-8')

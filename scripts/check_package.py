@@ -79,9 +79,17 @@ def check(root: Path) -> dict:
         data = yaml.safe_load(workflow.read_text(encoding='utf-8'))
         if data.get('permissions') != {'contents': 'read'}:
             errors.append('workflow must have exactly permissions contents: read')
+        early_envs = [('workflow', data.get('env', {}))]
         for job in data.get('jobs', {}).values():
             if 'permissions' in job and job['permissions'] != {'contents': 'read'}:
                 errors.append('workflow job must not widen token permissions')
+            early_envs.append(('job', job.get('env', {})))
+        # A focused regression guard, not a full Actions expression validator.
+        # runner context is unavailable before a step has reached its runner.
+        for scope, variables in early_envs:
+            for value in variables.values():
+                if isinstance(value, str) and re.search(r'\$\{\{[^}]*\brunner\s*(?:\.|\[)', value):
+                    errors.append(f'{scope} env: runner context is only allowed at step scope here')
     return {'status': 'pass' if not errors else 'fail', 'files_checked': checked, 'errors': errors,
             'scope': 'Offline packaging, selected paths/patterns, Python compile and local Markdown links only. Not exhaustive secret detection or a security certification.'}
 
