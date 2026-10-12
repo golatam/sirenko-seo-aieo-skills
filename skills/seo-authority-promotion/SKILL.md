@@ -2,11 +2,11 @@
 name: seo-authority-promotion
 description: "Use when planning SEO offsite promotion and earned media."
 version: 1.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 created_by: agent
 metadata:
-  hermes:
+  seo:
     tags: [seo, offsite, backlinks, digital-pr, outreach]
     related_skills: [seo-aieo, seo-research-strategy, seo-content-operations, seo-specializations, seo-reporting-monitoring, business-messaging-integrations]
 ---

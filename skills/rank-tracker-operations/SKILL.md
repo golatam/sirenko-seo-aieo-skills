@@ -2,7 +2,7 @@
 name: rank-tracker-operations
 description: "Use when checking SERP ranks. Verify Topvisor data."
 version: 1.1.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 created_by: agent
 ---

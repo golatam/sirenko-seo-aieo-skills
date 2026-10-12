@@ -2,11 +2,11 @@
 name: aieo-visibility
 description: "Use when measuring AI visibility. Require observed evidence."
 version: 1.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 created_by: agent
 metadata:
-  hermes:
+  seo:
     tags: [aieo, geo, aeo, citations, measurement]
     related_skills: [google-search-console-operations, claim-verification, technical-seo-audits]
 ---

@@ -2,10 +2,10 @@
 name: technical-seo-audits
 description: "Use when auditing technical SEO or indexing failures."
 version: 2.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 metadata:
-  hermes:
+  seo:
     tags: [seo, technical-audit, indexing, schema, cwv, migrations]
     related_skills: [seo-site-architecture, google-search-console-operations, seo-specializations, seo-reporting-monitoring]
 ---

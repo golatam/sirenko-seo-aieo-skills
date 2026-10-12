@@ -2,11 +2,11 @@
 name: google-search-console-operations
 description: "Use when operating Search Console. Verify access and totals."
 version: 2.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 created_by: agent
 metadata:
-  hermes:
+  seo:
     tags: [gsc, search-console, oauth, analytics]
     related_skills: [aieo-visibility, google-workspace, remote-mcp-oauth-operations]
 ---

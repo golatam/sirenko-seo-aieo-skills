@@ -88,7 +88,7 @@ def validate(root: Path, names: list[str], external_skills=()) -> dict:
                 warnings.append(f'{name}: trigger is not in Use when form')
             if len(text.splitlines()) > 200:
                 warnings.append(f'{name}: main file exceeds 200 lines')
-            related = checked_names(meta.get('metadata', {}).get('hermes', {}).get('related_skills', []), 'related_skills')
+            related = checked_names(meta.get('metadata', {}).get('seo', {}).get('related_skills', []), 'related_skills')
             for sibling in related:
                 if sibling not in index and sibling not in external:
                     errors.append(f'{name}: unknown related skill {sibling}')
@@ -97,7 +97,7 @@ def validate(root: Path, names: list[str], external_skills=()) -> dict:
             continue
         file_count = 0
         for path in sorted(folder.rglob('*')):
-            if not path.is_file() or '__pycache__' in path.parts:
+            if not path.is_file() or '__pycache__' in path.parts or path.name.startswith('._'):
                 continue
             file_count += 1
             try:

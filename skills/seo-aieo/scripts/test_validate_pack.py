@@ -84,12 +84,12 @@ class PackTests(unittest.TestCase):
         self.assertEqual(self.result()['status'], 'fail')
 
     def test_unknown_related_skill(self):
-        changed = VALID.replace('---\n# Test', 'metadata:\n  hermes:\n    related_skills: [absent]\n---\n# Test')
+        changed = VALID.replace('---\n# Test', 'metadata:\n  seo:\n    related_skills: [absent]\n---\n# Test')
         (self.skill / 'SKILL.md').write_text(changed)
         self.assertEqual(self.result()['status'], 'fail')
 
     def test_explicit_external_dependency(self):
-        changed = VALID.replace('---\n# Test', 'metadata:\n  hermes:\n    related_skills: [host-example]\n---\n# Test')
+        changed = VALID.replace('---\n# Test', 'metadata:\n  seo:\n    related_skills: [host-example]\n---\n# Test')
         (self.skill / 'SKILL.md').write_text(changed)
         result = MODULE.validate(self.root, ['test-skill'], external_skills=['host-example'])
         self.assertEqual(result['status'], 'pass')
@@ -97,7 +97,7 @@ class PackTests(unittest.TestCase):
         self.assertFalse(result['external_availability_verified'])
 
     def test_external_typo_still_fails(self):
-        changed = VALID.replace('---\n# Test', 'metadata:\n  hermes:\n    related_skills: [host-exampel]\n---\n# Test')
+        changed = VALID.replace('---\n# Test', 'metadata:\n  seo:\n    related_skills: [host-exampel]\n---\n# Test')
         (self.skill / 'SKILL.md').write_text(changed)
         result = MODULE.validate(self.root, ['test-skill'], external_skills=['host-example'])
         self.assertEqual(result['status'], 'fail')
@@ -110,7 +110,7 @@ class PackTests(unittest.TestCase):
     def test_related_must_be_name_list(self):
         for value in ('host-example', '[123]', '[host-example, host-example]'):
             with self.subTest(value=value):
-                changed = VALID.replace('---\n# Test', f'metadata:\n  hermes:\n    related_skills: {value}\n---\n# Test')
+                changed = VALID.replace('---\n# Test', f'metadata:\n  seo:\n    related_skills: {value}\n---\n# Test')
                 (self.skill / 'SKILL.md').write_text(changed)
                 self.assertEqual(MODULE.validate(self.root, ['test-skill'], external_skills=['host-example'])['status'], 'fail')
 

@@ -2,7 +2,7 @@
 name: ga4-project-reporting
 description: "Use when reporting GA4 traffic and conversion outcomes."
 version: 1.1.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 created_by: agent
 ---
 

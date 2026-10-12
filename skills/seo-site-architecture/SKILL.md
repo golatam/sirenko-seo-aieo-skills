@@ -2,10 +2,10 @@
 name: seo-site-architecture
 description: "Use when designing SEO site architecture or page scale."
 version: 1.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 metadata:
-  hermes:
+  seo:
     tags: [seo, architecture, intent, internal-links, programmatic]
     related_skills: [technical-seo-audits, seo-specializations, seo-reporting-monitoring]
 ---

@@ -2,11 +2,11 @@
 name: seo-content-operations
 description: "Use when creating or improving SEO content."
 version: 1.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 created_by: agent
 metadata:
-  hermes:
+  seo:
     tags: [seo, content, editorial, fact-checking, refresh, cro]
     related_skills: [seo-aieo, seo-research-strategy, humanizer-ru, seo-site-architecture, technical-seo-audits, seo-specializations, aieo-visibility, seo-authority-promotion, seo-reporting-monitoring, google-search-console-operations, rank-tracker-operations, ga4-project-reporting]
 ---

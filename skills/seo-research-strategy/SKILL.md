@@ -2,11 +2,11 @@
 name: seo-research-strategy
 description: "Use when planning SEO demand and content strategy."
 version: 1.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 created_by: agent
 metadata:
-  hermes:
+  seo:
     tags: [seo, research, keywords, competitors, intent, strategy]
     related_skills: [seo-aieo, competitor-analysis, seo-content-operations, seo-site-architecture, seo-specializations, technical-seo-audits, aieo-visibility, seo-authority-promotion, seo-reporting-monitoring, google-search-console-operations, rank-tracker-operations, ga4-project-reporting]
 ---

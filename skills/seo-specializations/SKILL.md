@@ -2,11 +2,11 @@
 name: seo-specializations
 description: "Use when SEO needs local, shop, intl, media or Yandex."
 version: 1.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 created_by: agent
 metadata:
-  hermes:
+  seo:
     tags: [seo, local, gbp, ecommerce, international, media, yandex, alice]
     related_skills: [seo-aieo, technical-seo-audits, seo-site-architecture, seo-research-strategy, seo-content-operations, seo-authority-promotion, aieo-visibility, seo-reporting-monitoring]
 ---

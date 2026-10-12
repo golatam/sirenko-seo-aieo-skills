@@ -2,11 +2,11 @@
 name: seo-aieo
 description: "Use when running end-to-end SEO/AIEO. Route and verify."
 version: 1.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 created_by: agent
 metadata:
-  hermes:
+  seo:
     tags: [seo, aieo, geo, aeo, strategy, orchestration]
     related_skills: [seo-research-strategy, technical-seo-audits, seo-site-architecture, seo-content-operations, aieo-visibility, seo-authority-promotion, seo-specializations, seo-reporting-monitoring, google-search-console-operations, rank-tracker-operations, ga4-project-reporting]
 ---

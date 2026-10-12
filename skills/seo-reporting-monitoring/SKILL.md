@@ -2,11 +2,11 @@
 name: seo-reporting-monitoring
 description: "Use when measuring SEO/AIEO results and regressions."
 version: 2.0.0
-author: Hermes Agent
+author: Sirenko SEO/AIEO Skills contributors
 license: MIT
 created_by: agent
 metadata:
-  hermes:
+  seo:
     tags: [seo, aieo, monitoring, measurement, experiments]
     related_skills: [seo-aieo, rank-tracker-operations, google-search-console-operations, ga4-project-reporting, aieo-visibility, seo-content-operations]
 ---
