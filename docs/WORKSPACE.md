@@ -24,6 +24,6 @@ export SEO_SKILLS_ROOT="$SEO_PACK_ROOT/skills"
 - Не хранить рабочие данные или секреты в skills, fixtures, памяти или Git. `.gitignore` — страховка, не защита от уже отслеживаемых файлов и не permission boundary.
 - Выход HTML checker создаётся эксклюзивно: существующий файл не перезаписывается. Runner тоже требует новый внешний каталог отчёта.
 - Test runner требует `TMPDIR`, не выбирает implicit системный temp; unittest fixtures используют его явно. GitHub Actions передаёт `${{ runner.temp }}`. Локальные tests не создают tempfiles рядом с исходниками.
-- Путь структурного валидатора вычисляется от `__file__`, не от cwd и не от live Hermes. В standalone checkout default root — `skills/`, декларация host skills — `docs/host-dependencies.json`. Для установленного дерева передавайте root и declaration явно, если документ не расположен рядом.
+- Путь структурного валидатора вычисляется от `__file__`, не от cwd и не от установленной копии навыков. В standalone checkout default root — `skills/`, декларация host skills — `docs/host-dependencies.json`. Для установленного дерева передавайте root и declaration явно, если документ не расположен рядом.
 
 Никакие значения переменных здесь не дают разрешения на публикации, расходы, чтение чужих данных, изменение профилей, установку интеграций или расширение OAuth scopes.

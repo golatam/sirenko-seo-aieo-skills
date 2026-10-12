@@ -30,7 +30,7 @@ HOST_NAMES = re.compile(
     r'hermes|clavito|openclaw|google-workspace|remote-mcp-oauth-operations'
     r'|business-messaging-integrations|web-analytics-architecture', re.I)
 TEXT_SUFFIXES = {'.md', '.py', '.json', '.csv', '.jsonl', '.yml', '.yaml', '.txt'}
-SCANNED = ('skills', 'scripts', 'tests')
+SCANNED = ('skills', 'scripts', 'tests', 'docs', 'README.md', 'SOURCES.md', '.github')
 
 
 class HostNeutralityTests(unittest.TestCase):

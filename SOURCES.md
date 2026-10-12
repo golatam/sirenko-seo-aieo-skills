@@ -1,6 +1,6 @@
 # Источники, происхождение и лицензирование
 
-Пакет — независимый Hermes-native синтез методик, оригинальные шаблоны и локальные Python-утилиты. Материалы исходной ревизии датированы **2026-09-24**; эта переносимая упаковка сохраняет публичные pinned references, но не перевыполняет историческую web-проверку и не доказывает актуальность продуктовых API/политик навсегда.
+Пакет — независимый синтез методик, оригинальные шаблоны и локальные Python-утилиты. Материалы исходной ревизии датированы **2026-09-24**; эта переносимая упаковка сохраняет публичные pinned references, но не перевыполняет историческую web-проверку и не доказывает актуальность продуктовых API/политик навсегда.
 
 ## Границы лицензии
 
@@ -17,7 +17,7 @@
 | [TheCraigHewitt/seomachine](https://github.com/TheCraigHewitt/seomachine) | `e818d5e38551a931333381d69c43da6e767ec775` | Research/draft/rewrite/CRO separation; без обязательной плотности/word count/plugin commands |
 | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | `5b2c0007766c6a1cf1d53fd8fc73e979e0821022` | Customer evidence и intent-driven planning; без фиксированных scoring weights |
 | [onvoyage-ai/gtm-engineer-skills](https://github.com/onvoyage-ai/gtm-engineer-skills) | `3777930184a10b25ab36bb2fc4da6c0f6cfcc187` | Artifact contracts и no invented volume; без KD-based guarantees |
-| [promptwatch-com/skills](https://github.com/promptwatch-com/skills) | `36fb1231174bef63980f260500a9dbd1dd0ff18d` | Owned/third-party citations и bounded comparisons; без вымышленных Hermes tools |
+| [promptwatch-com/skills](https://github.com/promptwatch-com/skills) | `36fb1231174bef63980f260500a9dbd1dd0ff18d` | Owned/third-party citations и bounded comparisons; без вымышленных инструментов хоста |
 | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | `19392f7a08264ed00486a251f5b2098321771f94` | Локальный evidence ledger; наш summarizer написан независимо, не перенос donor tracker |
 
 В исходных reference-файлах root licenses первых пяти отмечены как прочитанные MIT; для последних двух MIT был определён через GitHub metadata. Это разные уровни проверки, не одинаково полный license audit. Donor runtime/эффективность не подтверждались. Публичные ссылки сохранены, частные donor snapshots/build reviewlogs сюда не экспортированы.
@@ -33,7 +33,7 @@
 - [Specializations](skills/seo-specializations/references/sources.md)
 - [Donor/update policy](skills/seo-aieo/references/donor-policy.md)
 
-Google/Bing/Яндекс/OpenAI/Hermes official links в этих материалах — первоисточники продуктовых правил с явно ограниченным scope. Наличие документированного UI не доказывает API, права конкретного аккаунта или фактические результаты. Перед production decision проверяйте текущий первоисточник и состояние аккаунта отдельно.
+Google/Bing/Яндекс/OpenAI official links в этих материалах — первоисточники продуктовых правил с явно ограниченным scope. Наличие документированного UI не доказывает API, права конкретного аккаунта или фактические результаты. Перед production decision проверяйте текущий первоисточник и состояние аккаунта отдельно.
 
 ## Что намеренно исключено
 
