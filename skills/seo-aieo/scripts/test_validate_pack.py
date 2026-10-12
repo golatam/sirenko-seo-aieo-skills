@@ -135,6 +135,12 @@ class PackTests(unittest.TestCase):
                 path.write_text(json.dumps(data))
                 MODULE.load_external_dependencies(path)
 
+    def test_macos_sidecar_files_are_ignored(self):
+        (self.skill / '._SKILL.md').write_bytes(b'\x00\x05\x16\x07binary-appledouble')
+        result = self.result()
+        self.assertEqual(result['status'], 'pass')
+        self.assertEqual(result['skills'][0]['files'], 1)  # only SKILL.md counts
+
     def test_archive_is_not_active(self):
         other = self.root / '.archive' / 'test-skill'
         other.mkdir(parents=True)
