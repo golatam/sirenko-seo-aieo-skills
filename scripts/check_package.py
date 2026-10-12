@@ -9,7 +9,8 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-FORBIDDEN_PARTS = {'.git', '.venv', '.superpowers', '__pycache__', 'node_modules', 'raw-audits', 'client-exports', 'reviewlogs'}
+OPERATIONAL_PARTS = {'.git', '.venv', '.superpowers'}  # local tooling/scratch, not package content
+FORBIDDEN_PARTS = {'.git', '.venv', '__pycache__', 'node_modules', 'raw-audits', 'client-exports', 'reviewlogs'}
 PRIVATE_PATH = re.compile(r'/(?:data|home|Users|tmp)/')
 SECRET = re.compile(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\bgh[pousr]_[A-Za-z0-9]{30,}|\bgithub_pat_[A-Za-z0-9_]{30,}|\bAIza[A-Za-z0-9_-]{30,}|\bsk-[A-Za-z0-9]{32,}')
 EMAIL = re.compile(r'[A-Za-z0-9._%+-]+@([A-Za-z0-9.-]+\.[A-Za-z]{2,})')
@@ -22,7 +23,7 @@ def check(root: Path) -> dict:
     errors = []
     checked = 0
     # Git metadata, venv, and task infrastructure are operational, not package content.
-    files = sorted(p for p in root.rglob('*') if not any(x in FORBIDDEN_PARTS for x in p.relative_to(root).parts)
+    files = sorted(p for p in root.rglob('*') if not any(x in OPERATIONAL_PARTS for x in p.relative_to(root).parts)
                                                   and p.relative_to(root).parts[:2] != ('docs', 'superpowers'))
     for p in files:
         rel = p.relative_to(root)

@@ -140,6 +140,15 @@ class PortableCLITests(unittest.TestCase):
         self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
         self.assertTrue(any('expected readable UTF-8 source' in e for e in json.loads(p.stdout)['errors']))
 
+    def test_static_scan_still_rejects_forbidden_directories(self):
+        moved = self.scratch / 'forbidden-fixture'
+        shutil.copytree(ROOT, moved, ignore=shutil.ignore_patterns('.git', '.venv', '__pycache__', '*.pyc'))
+        (moved / 'raw-audits').mkdir()
+        (moved / 'raw-audits' / 'x.md').write_text('synthetic', encoding='utf-8')
+        p = self.run_script(moved / 'scripts/check_package.py')
+        self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
+        self.assertTrue(any('generated/private path' in e for e in json.loads(p.stdout)['errors']))
+
     def test_runner_context_rejected_before_step_scope(self):
         import yaml
         for scope in ('workflow', 'job'):
