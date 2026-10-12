@@ -78,5 +78,16 @@ class PluginManifestTests(unittest.TestCase):
         self.assertTrue((ROOT / 'skills' / 'seo-aieo' / 'SKILL.md').is_file())
 
 
+class PluginIconTests(unittest.TestCase):
+    def test_icon_meets_directory_requirements(self):
+        data = (ROOT / '.claude-plugin' / 'icon.png').read_bytes()
+        self.assertTrue(data.startswith(b'\x89PNG\r\n\x1a\n'))
+        self.assertLess(len(data), 2 * 1024 * 1024)
+        width = int.from_bytes(data[16:20], 'big')
+        height = int.from_bytes(data[20:24], 'big')
+        self.assertEqual(width, height)
+        self.assertTrue(512 <= width <= 2048, width)
+
+
 if __name__ == '__main__':
     unittest.main()

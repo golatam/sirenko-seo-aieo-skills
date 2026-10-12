@@ -164,6 +164,21 @@ class PortableCLITests(unittest.TestCase):
         self.assertTrue(any('missing package file: .claude-plugin/plugin.json' in e
                             for e in json.loads(p.stdout)['errors']))
 
+    def test_static_scan_accepts_plugin_icon(self):
+        moved = self.scratch / 'icon-fixture'
+        shutil.copytree(ROOT, moved, ignore=shutil.ignore_patterns('.git', '.venv', '__pycache__', '*.pyc'))
+        (moved / '.claude-plugin' / 'icon.png').write_bytes(b'\x89PNG\r\n\x1a\n' + b'\x00' * 32)
+        p = self.run_script(moved / 'scripts/check_package.py')
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+
+    def test_static_scan_rejects_invalid_plugin_icon(self):
+        moved = self.scratch / 'bad-icon-fixture'
+        shutil.copytree(ROOT, moved, ignore=shutil.ignore_patterns('.git', '.venv', '__pycache__', '*.pyc'))
+        (moved / '.claude-plugin' / 'icon.png').write_bytes(b'not a png')
+        p = self.run_script(moved / 'scripts/check_package.py')
+        self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
+        self.assertTrue(any('icon must be a PNG' in e for e in json.loads(p.stdout)['errors']))
+
     def test_runner_context_rejected_before_step_scope(self):
         import yaml
         for scope in ('workflow', 'job'):

@@ -16,6 +16,9 @@ SECRET = re.compile(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\bgh[pou
 EMAIL = re.compile(r'[A-Za-z0-9._%+-]+@([A-Za-z0-9.-]+\.[A-Za-z]{2,})')
 LINK = re.compile(r'\[[^\]\n]+\]\(([^)\s]+)\)')
 RESERVED_MAIL = {'example.com', 'example.net', 'example.org'}
+ICON_PATH = '.claude-plugin/icon.png'  # the only binary asset the package may carry
+PNG_SIGNATURE = b'\x89PNG\r\n\x1a\n'
+MAX_ICON_BYTES = 2 * 1024 * 1024
 
 
 def check(root: Path) -> dict:
@@ -35,6 +38,11 @@ def check(root: Path) -> dict:
         if not p.is_file():
             continue
         checked += 1
+        if rel.as_posix() == ICON_PATH:
+            data = p.read_bytes()
+            if not data.startswith(PNG_SIGNATURE) or len(data) > MAX_ICON_BYTES:
+                errors.append(f'{rel}: icon must be a PNG under 2 MB')
+            continue  # a binary image: no text scan
         if any(x in FORBIDDEN_PARTS for x in rel.parts) or p.suffix in {'.pyc', '.pyo'}:
             errors.append(f'{rel}: generated/private path is not package content')
         if p.name == '.env' or p.name.startswith('.env.') or re.fullmatch(r'(?:credentials?|auth|tokens?)(?:\.[^.]+)?', p.name, re.I):
