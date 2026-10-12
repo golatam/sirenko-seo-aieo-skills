@@ -11,10 +11,10 @@
 | `SEO_TRACKER_DIR` | Необязательный путь к **внешнему**, уже одобренному и проверенному tracker. Если его нет, не создавать автоматически |
 | `TMPDIR` | Существующий абсолютный разрешённый scratch-каталог вне checkout для тестовых временных файлов |
 
-Из корня checkout можно задать первые два пути:
+Первые два пути задаются явно, абсолютным путём к вашему checkout:
 
 ```bash
-export SEO_PACK_ROOT="$PWD"
+export SEO_PACK_ROOT="/absolute/path/to/this/checkout"
 export SEO_SKILLS_ROOT="$SEO_PACK_ROOT/skills"
 ```
 
