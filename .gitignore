@@ -16,3 +16,5 @@ coverage/
 .DS_Store
 ._*
 .superpowers/
+# Design specs and plans stay local: the plugin ships the whole repo root
+docs/superpowers/
