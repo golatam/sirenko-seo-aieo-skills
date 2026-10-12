@@ -15,7 +15,7 @@ metadata:
 
 ## When to Use
 
-Use for AIEO/AEO/GEO measurement, citation fidelity, native-console exports and AI-bot logs. This is a Hermes-native measurement workflow, not a monitoring subscription or a promise of rankings. Read-only by default; no provider calls, installations, publishing, robots edits or new spend without a separate scope and approval.
+Use for AIEO/AEO/GEO measurement, citation fidelity, native-console exports and AI-bot logs. This is a measurement workflow, not a monitoring subscription or a promise of rankings. Read-only by default; no provider calls, installations, publishing, robots edits or new spend without a separate scope and approval.
 
 ## Inputs and routing
 

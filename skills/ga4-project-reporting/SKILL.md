@@ -48,7 +48,7 @@ Formatting:
 
 ## SEO/AIEO outcomes
 
-For SEO landing cohorts, AI referrals, key events and qualified leads, load `references/organic-ai-outcomes.md`. Keep measurement setup in `web-analytics-architecture` and cross-source analysis in `seo-reporting-monitoring`; do not create a parallel definition of clicks, sessions or revenue.
+For SEO landing cohorts, AI referrals, key events and qualified leads, load `references/organic-ai-outcomes.md`. Keep measurement setup (tags, events) a separate task and cross-source analysis in `seo-reporting-monitoring`; do not create a parallel definition of clicks, sessions or revenue.
 
 ## Revenue-sign convention
 

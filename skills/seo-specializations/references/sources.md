@@ -7,7 +7,7 @@ Checked: 2026-09-24. Numbered citations across workflow files resolve here. Re-r
 AgriciDaniel/claude-seo, pinned commit `e77e783e38eeb738424eb72117abbd2dacdd88af`, MIT (notice below).[4]
 - `skills/seo-local/SKILL.md`: adapted business-type/vertical routing and site/schema/profile comparison.[2] Rejected ranking weights, «18-day review cliff», numerical review/uniqueness/geo-precision quotas, broad AI platform/conversion assertions and automatic public-address/rating recommendations.
 - `skills/seo-ecommerce/SKILL.md`: adapted product/schema/marketplace separation and cost awareness.[3] Rejected fixed word/image counts, arbitrary completeness scores, listing share as market share, assumed API/commerce-protocol integration and automatic ad spend.
-All workflows newly authored for Hermes. Donors are method ideas, not evidence that recommendations improve traffic.
+All workflows are newly authored. Donors are method ideas, not evidence that recommendations improve traffic.
 
 ## Official evidence map
 

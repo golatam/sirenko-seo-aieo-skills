@@ -22,7 +22,7 @@ Verified review: 2026-09-24. Official product docs were retrieved/read; no donor
 1. `promptwatch-com/skills`, commit `36fb1231174bef63980f260500a9dbd1dd0ff18d`, repository license MIT (GitHub API metadata).
    - File: https://github.com/promptwatch-com/skills/blob/36fb1231174bef63980f260500a9dbd1dd0ff18d/skills/mcp/citation-deep-dive/SKILL.md
    - Adopted: owned-vs-third-party citations; per-engine/source/domain views; bounded same-period comparison; confirm collection before interpreting empty data.
-   - Rejected: importing vendor tool names as available Hermes tools; causal 'likely reasons' without evidence; treating crawler attention as demonstrated citation probability; MCP install/config/key recipe.
+   - Rejected: importing vendor tool names as available tools; causal 'likely reasons' without evidence; treating crawler attention as demonstrated citation probability; MCP install/config/key recipe.
 2. `alirezarezvani/claude-skills`, commit `19392f7a08264ed00486a251f5b2098321771f94`, repository license MIT (GitHub API metadata).
    - File: https://github.com/alirezarezvani/claude-skills/blob/19392f7a08264ed00486a251f5b2098321771f94/marketing-skill/skills/aeo/scripts/citation_tracker.py
    - Read complete source: manual local citation ledger with add/list/report/export, not autonomous collection of all models.

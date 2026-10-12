@@ -24,7 +24,7 @@ Use when the user asks to run, repair, or schedule recurring keyword-position mo
 
 - Keep shared tracker credentials only in the central, git-ignored `.env` or process environment; never duplicate them in consumer repositories, project files, memory, reports, or Git.
 - Use the existing approved runner to resolve credentials without displaying them. Check only non-secret presence/permissions metadata when necessary. Do not request or accept secrets in chat; use approved secure credential setup.
-- Never print a credential or raw API response that may contain it. An authorization error is a blocked data source, not permission to rotate secrets, modify a server, or restart Hermes.
+- Never print a credential or raw API response that may contain it. An authorization error is a blocked data source, not permission to rotate secrets, modify a server, or restart services.
 
 ## Report validity
 

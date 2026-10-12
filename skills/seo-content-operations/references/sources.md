@@ -1,6 +1,6 @@
 # Reviewed sources and adaptation decisions
 
-Selective source-text review on 2026-09-24; no donor installer, script, API integration or CMS publication was run. These are independent Hermes-native procedures, not copied donor skills.
+Selective source-text review on 2026-09-24; no donor installer, script, API integration or CMS publication was run. These are independent procedures, not copied donor skills.
 
 ## TheCraigHewitt/seomachine
 Canonical: https://github.com/TheCraigHewitt/seomachine
@@ -23,7 +23,6 @@ Commit: `3777930184a10b25ab36bb2fc4da6c0f6cfcc187` (public GitHub API).
 
 ## Primary/editorial foundations
 - https://developers.google.com/search/docs/fundamentals/creating-helpful-content : official guidance for originality, useful analysis, source transparency, truthful authorship, YMYL trust and rejection of a preferred word count. Guidance is not evidence that a specific article will rank. Link/paraphrase only; no reproduced substantial text.
-- https://hermes-agent.nousresearch.com/docs/user-guide/features/skills : progressive disclosure and native skill authoring. Page license not inspected; no substantial copying.
 - Local `competitor-analysis`: evidence before recommendations, no invented pricing/traffic and separate competitor types. Local `humanizer-ru`: readable writing without invented facts, anecdotes or expertise. Both read and unchanged.
 
 The original research catalogs identify candidate sources, not verified features, pricing, statistics or capabilities. Private build reports and raw donor snapshots are not distributed. Public pinned references above and the repository source register (`${SEO_PACK_ROOT}/SOURCES.md`, optional checkout documentation) preserve the portable provenance. No donor code copied into this skill.

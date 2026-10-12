@@ -7,7 +7,7 @@ Reviewed 2026-09-24. Donors are **reference material**, not trusted executable i
 - AgriciDaniel/claude-seo, commit `e77e783e38eeb738424eb72117abbd2dacdd88af`, MIT (root LICENSE inspected).
   - https://github.com/AgriciDaniel/claude-seo/blob/e77e783e38eeb738424eb72117abbd2dacdd88af/skills/seo-technical/SKILL.md
   - https://github.com/AgriciDaniel/claude-seo/blob/e77e783e38eeb738424eb72117abbd2dacdd88af/skills/seo-programmatic/SKILL.md
-  - Adapted: category coverage; raw/rendered comparison; field-data provenance; data→template→URL→linking→quality→staged rollout workflow. Rewrote for Hermes and explicit authorization.
+  - Adapted: category coverage; raw/rendered comparison; field-data provenance; data→template→URL→linking→quality→staged rollout workflow. Rewrote with explicit authorization.
   - Rejected: hard keyword/URL/word/link quotas, percentage uniqueness as policy, safe-at-scale categories, manual-page-always-canonical rule, automatic priority/score, guessed availability of donor APIs and plugin commands. Dynamic fetch-limit/engine claims not needed here were not carried over.
 - Bhanunamikaze/Agentic-SEO-Skill, commit `69199160e18372bc5cdf9ddec20ccb9fb1b509f1`, MIT (root LICENSE inspected).
   - https://github.com/Bhanunamikaze/Agentic-SEO-Skill/blob/69199160e18372bc5cdf9ddec20ccb9fb1b509f1/SKILL.md

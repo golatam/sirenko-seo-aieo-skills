@@ -8,7 +8,7 @@ created_by: agent
 metadata:
   seo:
     tags: [seo, offsite, backlinks, digital-pr, outreach]
-    related_skills: [seo-aieo, seo-research-strategy, seo-content-operations, seo-specializations, seo-reporting-monitoring, business-messaging-integrations]
+    related_skills: [seo-aieo, seo-research-strategy, seo-content-operations, seo-specializations, seo-reporting-monitoring]
 ---
 
 # SEO Authority & Promotion
@@ -54,7 +54,7 @@ metadata:
 - Спонсорство — отдельный рекламный канал с disclosure и квалифицированными ссылками, не earned SEO.
 - Не делай автоматический disavow и не советуй по одному spam score. Только evidence packet и экспертное решение, отдельное подтверждение вне этого workflow.
 - DRAFT/prospect list не разрешают рассылку, CRM-запись, расход денег или публикацию. Внешнее изменение: preview → confirmation → exact execution → read-back.
-- Для CRM/сообщений загрузить `business-messaging-integrations` и email/LinkedIn skill. Standing approval rules сохраняются; retired endpoints не переносить.
+- Для CRM/сообщений использовать только уже одобренные в среде каналы и инструменты. Правила постоянных согласований сохраняются; устаревшие endpoints не переносить.
 - Ответ адресата не разрешает от имени пользователя согласовать цену, раскрытие информации, созвон или условия.
 
 ## Проверка результата

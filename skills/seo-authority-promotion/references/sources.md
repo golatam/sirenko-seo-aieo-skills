@@ -1,6 +1,6 @@
 # Provenance and evidence — promotion
 
-Checked: 2026-09-24. These are references for decisions, not performance guarantees. Before an external action re-read current policies and actual tool schemas. Workflow text is Hermes-native; no donor scripts, dependencies, installer, API credentials or external writes imported.
+Checked: 2026-09-24. These are references for decisions, not performance guarantees. Before an external action re-read current policies and actual tool schemas. Workflow text is original; no donor scripts, dependencies, installer, API credentials or external writes imported.
 
 ## Adoption decisions
 

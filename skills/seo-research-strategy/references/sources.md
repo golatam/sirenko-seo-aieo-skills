@@ -1,6 +1,6 @@
 # Source review and adaptation boundaries
 
-Reviewed for this skill on 2026-09-24. Commit SHAs came from the public GitHub API; named files and root LICENSE were fetched at those commits. This is a selective text review, not an audit or runtime test of the donor repositories. All three root licenses read as MIT. No donor code, installer, commands or whole skill was imported. These files are a new Hermes-native synthesis.
+Reviewed for this skill on 2026-09-24. Commit SHAs came from the public GitHub API; named files and root LICENSE were fetched at those commits. This is a selective text review, not an audit or runtime test of the donor repositories. All three root licenses read as MIT. No donor code, installer, commands or whole skill was imported. These files are a new synthesis.
 
 ## Content strategy and customer evidence
 - Canonical repository: https://github.com/coreyhaines31/marketingskills
@@ -30,7 +30,6 @@ Reviewed for this skill on 2026-09-24. Commit SHAs came from the public GitHub A
 ## Local and official foundations
 - Existing `competitor-analysis`: reuse source discipline, direct/indirect/substitute distinctions and decision-oriented actions; do not mistake search visibility for business strength. Skill unchanged.
 - Existing `humanizer-ru`: clarity without fabricated facts or expertise; skill unchanged.
-- Hermes skills documentation: https://hermes-agent.nousresearch.com/docs/user-guide/features/skills . Reviewed progressive disclosure, SKILL.md format and `skill_manage` authoring. Web-page license was not inspected; linked only, not reproduced.
 - Google helpful-content guidance: https://developers.google.com/search/docs/fundamentals/creating-helpful-content . Use originality, clear sourcing, accurate authorship and people-first purpose; recheck live guidance for future policy-sensitive claims. It is not a guarantee of rankings.
 
 The original catalogs were discovery aids only. Their stars, versions, API capabilities, prices, research statistics and claimed outcomes were not adopted as verified facts. Private raw snapshots and build reports are excluded from distribution; public provenance is above and in the repository source register (`${SEO_PACK_ROOT}/SOURCES.md`, optional checkout documentation). Future runs should save their own dated evidence outside the skill pack.

@@ -26,5 +26,29 @@ class DescriptionTests(unittest.TestCase):
                 self.assertRegex(description, r'[А-Яа-яЁё]')
 
 
+HOST_NAMES = re.compile(
+    r'hermes|clavito|openclaw|google-workspace|remote-mcp-oauth-operations'
+    r'|business-messaging-integrations|web-analytics-architecture', re.I)
+TEXT_SUFFIXES = {'.md', '.py', '.json', '.csv', '.jsonl', '.yml', '.yaml', '.txt'}
+SCANNED = ('skills', 'scripts', 'tests')
+
+
+class HostNeutralityTests(unittest.TestCase):
+    def test_no_host_names(self):
+        hits = []
+        for entry in SCANNED:
+            base = ROOT / entry
+            files = sorted(base.rglob('*')) if base.is_dir() else [base]
+            for path in files:
+                rel = path.relative_to(ROOT)
+                if (not path.is_file() or path.suffix not in TEXT_SUFFIXES or path.name.startswith('._')
+                        or '__pycache__' in rel.parts or 'superpowers' in rel.parts or path == Path(__file__).resolve()):
+                    continue
+                for number, line in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):
+                    if HOST_NAMES.search(line):
+                        hits.append(f'{rel}:{number}')
+        self.assertEqual(hits, [], 'host-specific names remain:\n' + '\n'.join(hits[:30]))
+
+
 if __name__ == '__main__':
     unittest.main()

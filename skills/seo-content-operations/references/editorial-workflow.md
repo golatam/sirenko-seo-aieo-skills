@@ -75,7 +75,7 @@ Input: reviewed local package, current version/hash, target account/site/record,
 Before an external write:
 1. Show a preview/diff of the actual content, metadata, destination, intended visibility/status, schedule/timezone if any, authorship, media, links and affected records. Show rollback implications.
 2. Obtain explicit user confirmation for that exact scope. Do not treat author editorial approval as permission to publish. A changed payload/target requires renewed confirmation.
-3. Discover the live connector/browser capabilities; never invent a WordPress, CMS or Hermes command. Set status explicitly (`draft` if authorized only for draft), not by provider default. Never expose or type secrets outside approved credential tools.
+3. Discover the live connector/browser capabilities; never invent a WordPress or CMS command. Set status explicitly (`draft` if authorized only for draft), not by provider default. Never expose or type secrets outside approved credential tools.
 4. Execute only the approved action. Read back the exact remote ID and fields; for a public release also fetch/render the public target. Verify body/version, status, canonical target, metadata and schedule. Do not submit live forms or test purchases without separate authorization.
 5. Save readback evidence. If mismatch or access failure occurs, stop, report actual state and prepare an approved correction/rollback. Do not claim published from an HTTP success or silently retry an ambiguous create (risk of duplicates).
 

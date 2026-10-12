@@ -10,7 +10,6 @@
 8. Раз в согласованный цикл перепроверять изменчивые API/eligibility/bot-policy ссылки; не включать автопереустановку по главной ветке стороннего репозитория.
 
 Официальные основания:
-- Hermes skills: https://hermes-agent.nousresearch.com/docs/user-guide/features/skills/
 - Google generative AI search: https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
 - Google Search Essentials: https://developers.google.com/search/docs/essentials
 - Agent Skills format: https://agentskills.io/specification

@@ -12,9 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = ROOT / 'skills/seo-aieo/scripts/validate_pack.py'
 AI = ROOT / 'skills/aieo-visibility/scripts/summarize_observations.py'
 FIXTURE = ROOT / 'skills/aieo-visibility/templates/synthetic-observations.jsonl'
-EXTERNAL = {'business-messaging-integrations', 'competitor-analysis',
-            'google-workspace', 'hermes-agent', 'humanizer-ru',
-            'remote-mcp-oauth-operations', 'web-analytics-architecture'}
+EXTERNAL = {'competitor-analysis', 'humanizer-ru'}
 
 
 class PortableCLITests(unittest.TestCase):

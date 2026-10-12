@@ -41,7 +41,7 @@ Wikipedia не канал self-promotion: не создавать/редакти
 ## 4. Approval → send → read-back
 
 Заполни [campaign.md](../templates/campaign.md): sender alias, exact recipients/thread, subject/full text, attachment/link/version, disclosure, CC/BCC (none), расходы/cap, approval evidence.
-Загрузи `business-messaging-integrations` и channel skill. Для Twenty действует текущая preview→explicit confirmation→execute→read-back политика; retired endpoints не копировать. Другое standing approval сохраняется.
+Используй только одобренные в среде каналы отправки. Для CRM действует политика preview→explicit confirmation→execute→read-back; устаревшие endpoints не копировать. Другие постоянные согласования сохраняются.
 Однозначное «да» на показанный обычный email-пакет не требовать подтвердить снова. Но новая аудитория/текст/бюджет, follow-up, CRM write и закупка не разрешены старым approval.
 Перед send: сверить sender, suppression/отказ, recent sent/дубли, версию. По одному получателю без CC/BCC, если не утверждено иначе.
 После send: точный Sent/thread, from/to/text/time/message ID. При timeout сначала искать результат, не повторять вслепую. Нет read-back → `send unverified`, сообщить, не заявлять успех.
