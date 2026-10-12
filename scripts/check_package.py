@@ -21,10 +21,13 @@ def check(root: Path) -> dict:
     root = root.resolve()
     errors = []
     checked = 0
-    # Git metadata and a local venv are operational, not package content.
-    files = sorted(p for p in root.rglob('*') if not any(x in {'.git', '.venv'} for x in p.relative_to(root).parts))
+    # Git metadata, venv, task infrastructure, and plan drafts are operational, not package content.
+    files = sorted(p for p in root.rglob('*') if not any(x in {'.git', '.venv', '.superpowers'} for x in p.relative_to(root).parts)
+                                                  and not str(p.relative_to(root)).startswith('docs/superpowers/plans'))
     for p in files:
         rel = p.relative_to(root)
+        if p.name.startswith('._'):
+            continue  # macOS/exFAT sidecar metadata: never package content, ignored by .gitignore
         if p.is_symlink():
             errors.append(f'{rel}: symlinks are not permitted in the portable distribution')
             continue

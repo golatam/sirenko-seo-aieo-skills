@@ -125,6 +125,13 @@ class PortableCLITests(unittest.TestCase):
         self.assertTrue(any('known secret-like pattern' in e for e in errors))
         self.assertTrue(any('host-specific absolute path' in e for e in errors))
 
+    def test_static_scan_ignores_macos_sidecar_files(self):
+        moved = self.scratch / 'sidecar-fixture'
+        shutil.copytree(ROOT, moved, ignore=shutil.ignore_patterns('.git', '.venv', '__pycache__', '*.pyc'))
+        (moved / '._README.md').write_bytes(b'\x00\x05\x16\x07binary-appledouble')
+        p = self.run_script(moved / 'scripts/check_package.py')
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+
     def test_runner_context_rejected_before_step_scope(self):
         import yaml
         for scope in ('workflow', 'job'):

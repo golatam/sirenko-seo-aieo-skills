@@ -14,3 +14,4 @@ client-exports/
 reviewlogs/
 coverage/
 .DS_Store
+._*
