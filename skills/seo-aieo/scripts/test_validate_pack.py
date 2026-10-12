@@ -141,6 +141,29 @@ class PackTests(unittest.TestCase):
         self.assertEqual(result['status'], 'pass')
         self.assertEqual(result['skills'][0]['files'], 1)  # only SKILL.md counts
 
+    def test_russian_trigger_description_accepted(self):
+        text = VALID.replace('Use when testing a skill.', 'Проверка навыка. Использовать, когда просят «проверь навык».')
+        (self.skill / 'SKILL.md').write_text(text)
+        result = self.result()
+        self.assertEqual(result['status'], 'pass')
+        self.assertEqual(result['warnings'], [])
+
+    def test_description_without_trigger_warns(self):
+        (self.skill / 'SKILL.md').write_text(VALID.replace('Use when testing a skill.', 'A skill about testing.'))
+        result = self.result()
+        self.assertEqual(result['status'], 'pass')
+        self.assertTrue(any('trigger' in w for w in result['warnings']))
+
+    def test_description_too_long_fails(self):
+        (self.skill / 'SKILL.md').write_text(VALID.replace('Use when testing a skill.', 'Use when testing. ' + 'x' * 1100))
+        result = self.result()
+        self.assertEqual(result['status'], 'fail')
+        self.assertTrue(any('1024' in e for e in result['errors']))
+
+    def test_support_skill_cannot_be_external(self):
+        with self.assertRaises(ValueError):
+            MODULE.validate(self.root, ['test-skill'], external_skills=['claim-verification'])
+
     def test_archive_is_not_active(self):
         other = self.root / '.archive' / 'test-skill'
         other.mkdir(parents=True)

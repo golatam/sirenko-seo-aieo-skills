@@ -70,8 +70,8 @@ def check(root: Path) -> dict:
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     found = {p.parent.name for p in (root / 'skills').glob('*/SKILL.md')}
-    if found != set(module.PACK):
-        errors.append('skills/: exactly the 12 core skills are required')
+    if found != set(module.BUNDLED):
+        errors.append('skills/: exactly the 12 core skills and the bundled support skills are required')
     for required in ('README.md', 'LICENSE', 'SOURCES.md', 'requirements.txt', 'docs/DEPENDENCIES.md',
                      'docs/WORKSPACE.md', 'docs/SECURITY.md', 'docs/TESTING.md', 'docs/host-dependencies.json',
                      '.github/workflows/tests.yml'):

@@ -2,7 +2,6 @@
   "schema_version": 1,
   "external_skills": [
     "business-messaging-integrations",
-    "claim-verification",
     "competitor-analysis",
     "google-workspace",
     "hermes-agent",

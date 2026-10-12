@@ -24,6 +24,10 @@ PACK = (
     'google-search-console-operations', 'rank-tracker-operations',
     'ga4-project-reporting',
 )
+SUPPORT = ('claim-verification',)
+BUNDLED = PACK + SUPPORT
+TRIGGER_MARKERS = ('Use when ', 'Использовать, когда ')
+MAX_DESCRIPTION = 1024
 LOCAL_REF = re.compile(r'(?<![\w/])((?:references|templates|scripts|assets)/[A-Za-z0-9_.\-/]+\.(?:md|py|jsonl|json|csv|html|yaml|yml|txt))')
 
 
@@ -47,14 +51,14 @@ def load_external_dependencies(path: Path) -> list[str]:
     if not isinstance(data['scope'], str) or not data['scope'].strip():
         raise ValueError('dependency manifest must explain its declaration-only scope')
     names = checked_names(data['external_skills'], 'external_skills')
-    if set(names) & set(PACK):
+    if set(names) & set(BUNDLED):
         raise ValueError('bundled skills cannot be declared external')
     return names
 
 
 def validate(root: Path, names: list[str], external_skills=()) -> dict:
     external = checked_names(external_skills, 'external_skills')
-    if set(external) & set(PACK):
+    if set(external) & set(BUNDLED):
         raise ValueError('bundled skills cannot be declared external')
     errors, warnings, results = [], [], []
     index: dict[str, list[Path]] = {}
@@ -84,8 +88,10 @@ def validate(root: Path, names: list[str], external_skills=()) -> dict:
                 raise ValueError('non-empty description required')
             if not parts[2].strip():
                 raise ValueError('body is empty')
-            if not meta['description'].startswith('Use when '):
-                warnings.append(f'{name}: trigger is not in Use when form')
+            if len(meta['description']) > MAX_DESCRIPTION:
+                raise ValueError(f'description exceeds {MAX_DESCRIPTION} characters')
+            if not any(marker in meta['description'] for marker in TRIGGER_MARKERS):
+                warnings.append(f'{name}: description has no trigger phrase (Use when / Использовать, когда)')
             if len(text.splitlines()) > 200:
                 warnings.append(f'{name}: main file exceeds 200 lines')
             related = checked_names(meta.get('metadata', {}).get('seo', {}).get('related_skills', []), 'related_skills')
@@ -139,7 +145,7 @@ def main() -> int:
                         help='skills directory; default is relative to this script, independent of cwd')
     parser.add_argument('--external-dependencies', type=Path,
                         help='explicit JSON declaration of host skills; default: <root>/../docs/host-dependencies.json if present')
-    parser.add_argument('--names', nargs='+', default=list(PACK))
+    parser.add_argument('--names', nargs='+', default=list(BUNDLED))
     args = parser.parse_args()
     if not args.root.is_dir():
         parser.error('skill root does not exist')

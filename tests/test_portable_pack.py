@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = ROOT / 'skills/seo-aieo/scripts/validate_pack.py'
 AI = ROOT / 'skills/aieo-visibility/scripts/summarize_observations.py'
 FIXTURE = ROOT / 'skills/aieo-visibility/templates/synthetic-observations.jsonl'
-EXTERNAL = {'business-messaging-integrations', 'claim-verification', 'competitor-analysis',
+EXTERNAL = {'business-messaging-integrations', 'competitor-analysis',
             'google-workspace', 'hermes-agent', 'humanizer-ru',
             'remote-mcp-oauth-operations', 'web-analytics-architecture'}
 
@@ -32,17 +32,17 @@ class PortableCLITests(unittest.TestCase):
         p = self.run_script(VALIDATOR)
         self.assertEqual(p.returncode, 0, p.stderr + p.stdout)
         data = json.loads(p.stdout)
-        self.assertEqual((data['requested'], data['checked']), (12, 12))
+        self.assertEqual((data['requested'], data['checked']), (13, 13))
         self.assertEqual(data['errors'], [])
         self.assertEqual(data['warnings'], [])
         self.assertEqual(set(data['external_skills_declared']), EXTERNAL)
         self.assertFalse(data['external_availability_verified'])
-        self.assertEqual(len({s['name'] for s in data['skills']}), 12)
+        self.assertEqual(len({s['name'] for s in data['skills']}), 13)
 
     def test_explicit_manifest_and_skill_root(self):
         p = self.run_script(VALIDATOR, '--root', ROOT / 'skills', '--external-dependencies', ROOT / 'docs/host-dependencies.json')
         self.assertEqual(p.returncode, 0, p.stderr + p.stdout)
-        self.assertEqual(json.loads(p.stdout)['checked'], 12)
+        self.assertEqual(json.loads(p.stdout)['checked'], 13)
 
     def test_no_blanket_external_bypass(self):
         manifest = self.scratch / 'none.json'
@@ -65,7 +65,7 @@ class PortableCLITests(unittest.TestCase):
         p = self.run_script(moved / 'skills/seo-aieo/scripts/validate_pack.py')
         self.assertEqual(p.returncode, 0, p.stderr + p.stdout)
         data = json.loads(p.stdout)
-        self.assertEqual(data['checked'], 12)
+        self.assertEqual(data['checked'], 13)
         self.assertTrue(all(Path(s['path']).is_relative_to(moved) for s in data['skills']))
         p = self.run_script(moved / 'scripts/check_package.py')
         self.assertEqual(p.returncode, 0, p.stderr + p.stdout)
@@ -76,7 +76,7 @@ class PortableCLITests(unittest.TestCase):
         p = self.run_script(installed / 'seo-aieo/scripts/validate_pack.py', '--external-dependencies', ROOT / 'docs/host-dependencies.json')
         self.assertEqual(p.returncode, 0, p.stderr + p.stdout)
         data = json.loads(p.stdout)
-        self.assertEqual(data['checked'], 12)
+        self.assertEqual(data['checked'], 13)
         self.assertTrue(all(Path(s['path']).is_relative_to(installed) for s in data['skills']))
 
     def test_synthetic_v2_cli(self):
@@ -148,6 +148,14 @@ class PortableCLITests(unittest.TestCase):
         p = self.run_script(moved / 'scripts/check_package.py')
         self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
         self.assertTrue(any('generated/private path' in e for e in json.loads(p.stdout)['errors']))
+
+    def test_missing_support_skill_fails_package_check(self):
+        moved = self.scratch / 'missing-support-fixture'
+        shutil.copytree(ROOT, moved, ignore=shutil.ignore_patterns('.git', '.venv', '__pycache__', '*.pyc'))
+        shutil.rmtree(moved / 'skills/claim-verification')
+        p = self.run_script(moved / 'scripts/check_package.py')
+        self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
+        self.assertTrue(any('exactly the 12 core skills' in e for e in json.loads(p.stdout)['errors']))
 
     def test_runner_context_rejected_before_step_scope(self):
         import yaml
