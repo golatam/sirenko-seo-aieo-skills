@@ -1,4 +1,5 @@
 """Guards that keep the pack self-contained and discoverable. Offline, stdlib + PyYAML."""
+import json
 import re
 import unittest
 from pathlib import Path
@@ -48,6 +49,23 @@ class HostNeutralityTests(unittest.TestCase):
                     if HOST_NAMES.search(line):
                         hits.append(f'{rel}:{number}')
         self.assertEqual(hits, [], 'host-specific names remain:\n' + '\n'.join(hits[:30]))
+
+
+class PluginManifestTests(unittest.TestCase):
+    def load(self, name):
+        return json.loads((ROOT / '.claude-plugin' / name).read_text(encoding='utf-8'))
+
+    def test_plugin_and_marketplace_agree(self):
+        plugin = self.load('plugin.json')
+        market = self.load('marketplace.json')
+        entry = market['plugins'][0]
+        self.assertEqual(plugin['name'], 'seo-aieo')
+        self.assertEqual(plugin['license'], 'MIT')
+        self.assertEqual((entry['name'], entry['version'], entry['source']),
+                         (plugin['name'], plugin['version'], './'))
+
+    def test_skills_live_in_default_plugin_directory(self):
+        self.assertTrue((ROOT / 'skills' / 'seo-aieo' / 'SKILL.md').is_file())
 
 
 if __name__ == '__main__':

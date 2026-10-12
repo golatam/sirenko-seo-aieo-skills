@@ -1,0 +1,11 @@
+{
+  "name": "seo-aieo",
+  "description": "Полный SEO/AIEO-цикл для Claude Code: исследование, технический аудит, архитектура, контент, видимость в ответах ИИ, отчётность. 13 навыков, шаблоны и офлайн-утилиты.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Sirenko SEO/AIEO Skills contributors"
+  },
+  "repository": "https://github.com/golatam/sirenko-seo-aieo-skills",
+  "license": "MIT",
+  "keywords": ["seo", "aieo", "geo", "search-console", "ga4", "yandex", "topvisor"]
+}

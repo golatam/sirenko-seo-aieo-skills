@@ -74,7 +74,7 @@ def check(root: Path) -> dict:
         errors.append('skills/: exactly the 12 core skills and the bundled support skills are required')
     for required in ('README.md', 'LICENSE', 'SOURCES.md', 'requirements.txt', 'docs/DEPENDENCIES.md',
                      'docs/WORKSPACE.md', 'docs/SECURITY.md', 'docs/TESTING.md', 'docs/host-dependencies.json',
-                     '.github/workflows/tests.yml'):
+                     '.github/workflows/tests.yml', '.claude-plugin/plugin.json', '.claude-plugin/marketplace.json'):
         if not (root / required).is_file():
             errors.append(f'missing package file: {required}')
     import yaml

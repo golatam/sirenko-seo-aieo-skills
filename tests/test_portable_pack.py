@@ -155,6 +155,15 @@ class PortableCLITests(unittest.TestCase):
         self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
         self.assertTrue(any('exactly the 12 core skills' in e for e in json.loads(p.stdout)['errors']))
 
+    def test_missing_plugin_manifest_fails_package_check(self):
+        moved = self.scratch / 'missing-manifest-fixture'
+        shutil.copytree(ROOT, moved, ignore=shutil.ignore_patterns('.git', '.venv', '__pycache__', '*.pyc'))
+        (moved / '.claude-plugin/plugin.json').unlink()
+        p = self.run_script(moved / 'scripts/check_package.py')
+        self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
+        self.assertTrue(any('missing package file: .claude-plugin/plugin.json' in e
+                            for e in json.loads(p.stdout)['errors']))
+
     def test_runner_context_rejected_before_step_scope(self):
         import yaml
         for scope in ('workflow', 'job'):
