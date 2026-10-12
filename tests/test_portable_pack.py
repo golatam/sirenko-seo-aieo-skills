@@ -132,6 +132,14 @@ class PortableCLITests(unittest.TestCase):
         p = self.run_script(moved / 'scripts/check_package.py')
         self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
 
+    def test_static_scan_still_rejects_other_binary_files(self):
+        moved = self.scratch / 'binary-fixture'
+        shutil.copytree(ROOT, moved, ignore=shutil.ignore_patterns('.git', '.venv', '__pycache__', '*.pyc'))
+        (moved / 'notes.bin').write_bytes(b'\xff\xfe\x00\x00')  # UTF-16 BOM, invalid as UTF-8
+        p = self.run_script(moved / 'scripts/check_package.py')
+        self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
+        self.assertTrue(any('expected readable UTF-8 source' in e for e in json.loads(p.stdout)['errors']))
+
     def test_runner_context_rejected_before_step_scope(self):
         import yaml
         for scope in ('workflow', 'job'):
