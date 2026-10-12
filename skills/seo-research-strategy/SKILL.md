@@ -23,13 +23,13 @@ Read [research-method](references/research-method.md) and [data-contracts](refer
 
 ### 1. Recover the decision and scope
 - **Input:** project notes, domain, offer, existing content/data, requested decision.
-- **Procedure:** inspect relevant project files with `search_files`/`read_file`; establish customer job, commercial goal, country, language, engine, device, resources, exclusions and access. Separate each country/language lane. Record assumptions rather than silently using a global market.
+- **Procedure:** inspect relevant project files with file search / file read tools; establish customer job, commercial goal, country, language, engine, device, resources, exclusions and access. Separate each country/language lane. Record assumptions rather than silently using a global market.
 - **Output:** [research brief](templates/research-brief.md), a source inventory and bounded sampling plan in the chosen project artifact directory.
 - **Verification/stop:** a domain without an offer or audience supports only reconnaissance. Stop prioritization if the missing decision changes the market or page type; ask one decisive question.
 
 ### 2. Gather demand and competitor evidence
 - **Input:** brief, scoped customer evidence, site inventory, authorized exports and public sources.
-- **Procedure:** collect exact customer phrasing and query variants; inspect local-language SERPs and relevant competitor pages. Use `web_search` for discovery, `web_extract` for page evidence, browser only for missing rendered content. Follow pagination on exports/APIs and reconcile totals. Route GSC, rank data and GA4 to their specialist skills; discover actual tool schemas before using a connector.
+- **Procedure:** collect exact customer phrasing and query variants; inspect local-language SERPs and relevant competitor pages. Use web search tools for discovery, page fetch tools for page evidence, browser only for missing rendered content. Follow pagination on exports/APIs and reconcile totals. Route GSC, rank data and GA4 to their specialist skills; discover actual tool schemas before using a connector.
 - **Output:** [queries.csv](templates/queries.csv), [metrics.csv](templates/metrics.csv), source-grounded competitor matrix inside [strategy.md](templates/strategy.md).
 - **Verification/stop:** trace every query to a source or label it `hypothesis`. No frequency, KD, traffic or market-share invention. Missing access means blanks plus precise limits, not invented estimates. No paid calls or installation without separate permission.
 

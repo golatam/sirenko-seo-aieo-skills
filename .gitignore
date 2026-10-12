@@ -15,3 +15,4 @@ reviewlogs/
 coverage/
 .DS_Store
 ._*
+.superpowers/

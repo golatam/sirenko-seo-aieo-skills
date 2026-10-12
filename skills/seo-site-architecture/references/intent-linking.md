@@ -42,7 +42,7 @@ Differentiate crawling, index control and canonical consolidation; robots disall
 
 ## Identity handoff
 
-Follow the shared **Identity handoff** reference in `seo-aieo` for the query/page/provider crosswalk; load that umbrella reference through skill_view. The architecture CSV keeps one row per source `mapping_id` with query/page IDs, lane and provisional/blocked state. A new proposed slug for the same logical page preserves target_page_id and records old→new in decision evidence; changing the assignment needs new mapping/architecture IDs and explicit supersedes/lineage. Do not join rank history by phrase or current URL, and do not promote provisional mapping status because architecture is approved. Content receives source mapping IDs plus the current architecture decision.
+Follow the shared **Identity handoff** reference in `seo-aieo` for the query/page/provider crosswalk; open that umbrella reference file. The architecture CSV keeps one row per source `mapping_id` with query/page IDs, lane and provisional/blocked state. A new proposed slug for the same logical page preserves target_page_id and records old→new in decision evidence; changing the assignment needs new mapping/architecture IDs and explicit supersedes/lineage. Do not join rank history by phrase or current URL, and do not promote provisional mapping status because architecture is approved. Content receives source mapping IDs plus the current architecture decision.
 
 ## Engineering handoff / acceptance
 

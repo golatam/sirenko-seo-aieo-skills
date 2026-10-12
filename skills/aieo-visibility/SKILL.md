@@ -38,7 +38,7 @@ Google's official guide says llms.txt/new AI text files, special AI schema and a
 
 ## Local commands
 
-Resolve the installed `skill_dir` using `skill_view`; set `SKILL` to that directory. Requires Python 3 stdlib only.
+The skill directory is the directory this SKILL.md was loaded from (when installed as a plugin: `skills/aieo-visibility/` inside the plugin directory); set `SKILL` to that directory. Requires Python 3 stdlib only.
 
 ```bash
 python3 "$SKILL/scripts/summarize_observations.py" observations.jsonl --domain example.com --alias 'Example Brand'

@@ -1,6 +1,6 @@
 # Offline HTML evidence checker
 
-`scripts/html_evidence.py` is original stdlib-only Python, tested with Python 3.13. It processes one **local saved file**, not a site crawl. Use the `skill_dir` returned by `skill_view`, not the shell cwd or another profile.
+`scripts/html_evidence.py` is original stdlib-only Python, tested with Python 3.13. It processes one **local saved file**, not a site crawl. Use the skill directory (the directory the skill was loaded from; as a plugin: `skills/technical-seo-audits/` inside the plugin directory), not the shell cwd or another profile.
 
 ```bash
 python3 <skill_dir>/scripts/html_evidence.py --html /path/source.html --url https://example.com/path --out /path/new-evidence.json

@@ -29,7 +29,8 @@ class DescriptionTests(unittest.TestCase):
 
 HOST_NAMES = re.compile(
     r'hermes|clavito|openclaw|google-workspace|remote-mcp-oauth-operations'
-    r'|business-messaging-integrations|web-analytics-architecture', re.I)
+    r'|business-messaging-integrations|web-analytics-architecture'
+    r'|skill_view|skill_manage|web_extract|web_search|search_files|read_file|\bgateway\b', re.I)
 TEXT_SUFFIXES = {'.md', '.py', '.json', '.csv', '.jsonl', '.yml', '.yaml', '.txt'}
 SCANNED = ('skills', 'scripts', 'tests', 'docs', 'README.md', 'SOURCES.md', '.github')
 
@@ -63,6 +64,15 @@ class PluginManifestTests(unittest.TestCase):
         self.assertEqual(plugin['license'], 'MIT')
         self.assertEqual((entry['name'], entry['version'], entry['source']),
                          (plugin['name'], plugin['version'], './'))
+
+    def test_readme_install_commands_match_manifests(self):
+        plugin = self.load('plugin.json')
+        market = self.load('marketplace.json')
+        readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+        slug = plugin['repository'].removeprefix('https://github.com/')
+        self.assertEqual(market['name'], 'sirenko-seo')
+        self.assertIn(f'/plugin marketplace add {slug}', readme)
+        self.assertIn(f"/plugin install {plugin['name']}@{market['name']}", readme)
 
     def test_skills_live_in_default_plugin_directory(self):
         self.assertTrue((ROOT / 'skills' / 'seo-aieo' / 'SKILL.md').is_file())

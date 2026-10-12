@@ -33,4 +33,4 @@ Runner и упаковочный checker требуют тот же PyYAML; от
 - **Bing/Яндекс/GBP/Merchant/AI providers**: свои аккаунты, права, схемы и бюджеты; UI не означает API. Доступность каждого источника проверяется отдельно. Готовых коллекторов и ключей нет.
 - **Crawler/CMS/outreach/market data**: approved host tools или разрешённые экспорты. Полный crawler, CMS deployment, paid keyword/backlink data, AI collection, cron и notifier не являются зависимостями offline-тестов.
 
-При отсутствии интеграции выполняется только доказуемая часть: blocked/unknown остаётся в manifest. GSC не заменяет Topvisor, readiness не заменяет AI visibility. Пакет не меняет host config, токены, gateway или расписания.
+При отсутствии интеграции выполняется только доказуемая часть: blocked/unknown остаётся в manifest. GSC не заменяет Topvisor, readiness не заменяет AI visibility. Пакет не меняет конфигурацию среды, токены, сервисы или расписания.

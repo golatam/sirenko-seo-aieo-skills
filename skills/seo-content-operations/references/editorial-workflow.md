@@ -31,7 +31,7 @@ For how-to pages: verify prerequisites, sequence, exact commands if included, fa
 Extract atomic material claims: numbers, results, dates, availability, product capabilities, comparisons, quotations, safety/legal advice, credentials and causal claims. Store exact draft text, source locator, status, market/language, dates and reviewer in claims.csv. Separate facts from opinions and illustrative assumptions.
 
 For each factual claim:
-1. Open the primary source using `web_extract`, `read_file` or browser as appropriate. Capture the relevant passage/table/row and retrieval time; snippets and generated summaries are discovery aids.
+1. Open the primary source using page fetch / file read tools or browser as appropriate. Capture the relevant passage/table/row and retrieval time; snippets and generated summaries are discovery aids.
 2. Check entity, date, geography, product/version, units, population/denominator and whether the source supports the exact wording. Recalculate derived numbers with tools and store formula/inputs.
 3. Distinguish a vendor claim from independently observed evidence. Seek corroboration for consequential disputed claims and retain contradictions.
 4. Preserve attribution and quotation accuracy. Keep necessary caveats next to the claim; a source in a footer does not license stronger wording.

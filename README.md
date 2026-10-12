@@ -81,7 +81,7 @@ python3 -B skills/technical-seo-audits/scripts/html_evidence.py   --html "$SEO_A
 
 ## Зависимости, безопасность и границы
 
-- [Host skills, API и внешний tracker](docs/DEPENDENCIES.md); точный whitelist — [host-dependencies.json](docs/host-dependencies.json).
+- [Необязательные внешние навыки, API и внешний tracker](docs/DEPENDENCIES.md); точный whitelist — [host-dependencies.json](docs/host-dependencies.json).
 - [Workspace и приватное хранение](docs/WORKSPACE.md): переменные задаются оператором, не ищут локальные проекты и не читают секреты автоматически.
 - [Security](docs/SECURITY.md): no secrets in chat/Git, минимальные права, явные расходы/публикации/доставка, exact-target readback.
 - `observed / derived / hypothesis / unknown`, synthetic labels, различие error/zero и schema v2 сохраняются. GSC average position не заменяет rank tracker; readiness не заменяет AI-наблюдения; GA4 не финансовый реестр.

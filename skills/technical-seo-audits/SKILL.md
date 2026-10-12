@@ -35,7 +35,7 @@ Output: scope/coverage ledger, page inventory, evidence-linked findings, depende
 
 ## Offline HTML evidence utility
 
-Load `references/offline-html-checker.md` before use. Locate this skill's actual `skill_dir` via `skill_view`; do not assume another profile or donor plugin path.
+Load `references/offline-html-checker.md` before use. The skill directory is the directory this SKILL.md was loaded from (when installed as a plugin: `skills/technical-seo-audits/` inside the plugin directory); do not assume another profile or donor plugin path.
 
 ```bash
 python3 <skill_dir>/scripts/html_evidence.py --html /path/page.html --url https://example.com/page --out /path/new-evidence.json
