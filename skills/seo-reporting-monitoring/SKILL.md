@@ -1,6 +1,6 @@
 ---
 name: seo-reporting-monitoring
-description: "Use when measuring SEO/AIEO results and regressions."
+description: "Измерение и мониторинг SEO: сопоставимые отчёты, отклонения, причины просадок, эксперименты, следующий цикл улучшений. Использовать, когда просят «сделай SEO-отчёт», «что изменилось за неделю», «почему упал трафик», «проверь эффект правок», «настрой мониторинг SEO»."
 version: 2.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

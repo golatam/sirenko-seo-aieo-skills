@@ -1,6 +1,6 @@
 ---
 name: ga4-project-reporting
-description: "Use when reporting GA4 traffic and conversion outcomes."
+description: "Отчёты по Google Analytics 4: трафик и конверсии по странам, месяцам, каналам и источникам, органика и переходы из ИИ, владение отчётом. Использовать, когда просят «отчёт по GA4», «трафик по странам и каналам», «конверсии из органики», «откуда идут переходы из ИИ»."
 version: 1.1.0
 author: Sirenko SEO/AIEO Skills contributors
 created_by: agent

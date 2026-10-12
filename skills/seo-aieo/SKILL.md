@@ -1,6 +1,6 @@
 ---
 name: seo-aieo
-description: "Use when running end-to-end SEO/AIEO. Route and verify."
+description: "Полный цикл SEO и видимости в ответах ИИ (AIEO/GEO/AEO): выбирает этапы, ведёт манифест проекта и журнал доказательств, проверяет результат. Использовать, когда просят «полный SEO-аудит», «запусти SEO-цикл», «составь план продвижения сайта», «что делать с SEO», либо задача затрагивает несколько SEO-этапов сразу."
 version: 1.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

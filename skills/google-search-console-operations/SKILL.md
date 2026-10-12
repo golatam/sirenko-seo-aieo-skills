@@ -1,6 +1,6 @@
 ---
 name: google-search-console-operations
-description: "Use when operating Search Console. Verify access and totals."
+description: "Работа с Google Search Console: проверка доступа к сайту, точное свойство, безопасная авторизация только на чтение, выгрузка кликов, показов, запросов, страниц и sitemap с контролем полноты. Использовать, когда просят «подключи Search Console», «покажи клики и показы», «по каким запросам трафик», «проверь права на сайт в GSC»."
 version: 2.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

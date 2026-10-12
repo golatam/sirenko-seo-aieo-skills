@@ -1,6 +1,6 @@
 ---
 name: aieo-visibility
-description: "Use when measuring AI visibility. Require observed evidence."
+description: "Измерение видимости бренда в ответах ИИ: реальные ответы, цитаты, точность пересказа, отчёты поисковых консолей, обращения ИИ-ботов в логах, строгий журнал наблюдений. Использовать, когда просят «замерить видимость в ИИ», «цитирует ли нас ChatGPT, Perplexity или Алиса», «проверить AI-ботов в логах», «AIEO/GEO отчёт»."
 version: 1.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

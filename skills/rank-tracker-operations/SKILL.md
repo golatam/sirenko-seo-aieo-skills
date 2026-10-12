@@ -1,6 +1,6 @@
 ---
 name: rank-tracker-operations
-description: "Use when checking SERP ranks. Verify Topvisor data."
+description: "Позиции сайта через трекер (Topvisor): проверка доступа, цена и согласованный запуск платной проверки, полнота матрицы запрос×регион, история позиций. Использовать, когда просят «сними позиции», «проверь позиции в Topvisor», «сколько стоит проверка позиций», «динамика позиций за неделю»."
 version: 1.1.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

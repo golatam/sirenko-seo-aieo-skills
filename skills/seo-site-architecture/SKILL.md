@@ -1,6 +1,6 @@
 ---
 name: seo-site-architecture
-description: "Use when designing SEO site architecture or page scale."
+description: "Архитектура сайта для SEO: карта запрос→URL, структура разделов, внутренняя перелинковка, массовые (programmatic) страницы и защита от тонкого контента, миграционные передачи. Использовать, когда просят «спроектируй структуру сайта», «внутренняя перелинковка», «карта URL», «масштабировать страницы шаблоном», «план переезда структуры»."
 version: 1.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

@@ -1,6 +1,6 @@
 ---
 name: technical-seo-audits
-description: "Use when auditing technical SEO or indexing failures."
+description: "Технический SEO-аудит: индексация, canonical, robots, редиректы, hreflang, схемы, Core Web Vitals, JavaScript-рендеринг, логи, миграции, Яндекс. Использовать, когда просят «проверь индексацию», «технический аудит сайта», «почему страница не в индексе», «проверь canonical и редиректы», «разбери падение после миграции»."
 version: 2.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

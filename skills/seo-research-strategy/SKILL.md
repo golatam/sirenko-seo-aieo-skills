@@ -1,6 +1,6 @@
 ---
 name: seo-research-strategy
-description: "Use when planning SEO demand and content strategy."
+description: "Исследование спроса и SEO-стратегия: ключевые слова, конкуренты в выдаче, интенты, кластеры, привязка запросов к страницам, каннибализация, приоритетный план. Использовать, когда просят «подобрать ключевые слова», «собрать семантику», «разобрать конкурентов в выдаче», «составить SEO-стратегию», «найти каннибализацию»."
 version: 1.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

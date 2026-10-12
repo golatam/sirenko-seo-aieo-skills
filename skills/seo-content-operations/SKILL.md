@@ -1,6 +1,6 @@
 ---
 name: seo-content-operations
-description: "Use when creating or improving SEO content."
+description: "Контент для SEO: бриф, проверка фактов, редактура, пакет к публикации, обновление и объединение страниц, эксперименты по конверсии. Использовать, когда просят «напиши SEO-статью», «составь бриф», «обнови старую страницу», «проверь текст на факты», «улучшить конверсию страницы»."
 version: 1.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

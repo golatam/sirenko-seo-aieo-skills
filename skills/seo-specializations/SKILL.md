@@ -1,6 +1,6 @@
 ---
 name: seo-specializations
-description: "Use when SEO needs local, shop, intl, media or Yandex."
+description: "Специализации SEO: локальное (Google Business Profile), интернет-магазины, международное (hreflang, рынки), картинки, видео и новости, Яндекс и Алиса. Использовать, когда просят «локальное SEO», «SEO интернет-магазина», «мультирегиональный сайт», «hreflang для рынков», «продвижение в Яндексе», «видимость в Алисе»."
 version: 1.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT

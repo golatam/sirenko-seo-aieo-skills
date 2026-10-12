@@ -1,6 +1,6 @@
 ---
 name: seo-authority-promotion
-description: "Use when planning SEO offsite promotion and earned media."
+description: "Внешнее продвижение: ссылки, упоминания, PR-материалы, черновики писем, проверка размещений, без автоматической рассылки. Использовать, когда просят «план ссылочного продвижения», «найди площадки для упоминаний», «подготовь письма вебмастерам», «проверь размещённые ссылки», «earned media»."
 version: 1.0.0
 author: Sirenko SEO/AIEO Skills contributors
 license: MIT
