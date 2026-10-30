@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/golatam/sirenko-seo-aieo-skills/schemas/article.schema.json",
+  "title": "SEO article draft",
+  "description": "Выход seo-content-operations (step=article) в режиме service. Каждая цифра и факт из body_md есть в claims со ссылкой на sources[].id; связь id проверяется кодом, не схемой.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slug", "title", "meta", "body_md", "faq", "sources", "claims", "word_count"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 60 },
+    "meta": { "type": "string", "minLength": 1, "maxLength": 155 },
+    "body_md": { "type": "string", "description": "Markdown без H1; ссылки на источники — обычные markdown-ссылки." },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["q", "a"],
+        "properties": {
+          "q": { "type": "string", "minLength": 1 },
+          "a": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "url", "title"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+          "url": { "type": "string", "format": "uri" },
+          "title": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "source_id"],
+        "properties": {
+          "text": { "type": "string", "minLength": 1, "description": "Точный фрагмент из body_md с цифрой или фактом." },
+          "source_id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" }
+        }
+      }
+    },
+    "word_count": { "type": "integer", "minimum": 0 },
+    "reasons": {
+      "type": "array",
+      "description": "Что убрано или сужено из-за нехватки подтверждённых данных.",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

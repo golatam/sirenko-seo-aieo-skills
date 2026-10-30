@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/golatam/sirenko-seo-aieo-skills/schemas/qa.schema.json",
+  "title": "SEO article QA",
+  "description": "Итог проверки статьи: kind=llm — редакторский чеклист seo-content-operations, kind=claim — проверка утверждений claim-verification. passed=true только если все checks прошли.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["passed", "checks", "fixes"],
+  "properties": {
+    "passed": { "type": "boolean" },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "name", "passed", "details"],
+        "properties": {
+          "kind": { "enum": ["llm", "claim"] },
+          "name": { "type": "string", "minLength": 1 },
+          "passed": { "type": "boolean" },
+          "details": { "type": "string" }
+        }
+      }
+    },
+    "fixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["where", "problem", "suggestion"],
+        "properties": {
+          "where": { "type": "string", "minLength": 1 },
+          "problem": { "type": "string", "minLength": 1 },
+          "suggestion": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

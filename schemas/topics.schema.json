@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/golatam/sirenko-seo-aieo-skills/schemas/topics.schema.json",
+  "title": "SEO topics",
+  "description": "Выход seo-research-strategy в режиме service: приоритизированный список тем для сайта. Пустой topics допустим только с непустым reasons.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["site", "generated_at", "topics"],
+  "properties": {
+    "site": {
+      "type": "string",
+      "description": "Домен без схемы и пути, например example.com.",
+      "pattern": "^(?=.{1,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z]{2,63}$"
+    },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "topics": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/topic" }
+    },
+    "reasons": {
+      "type": "array",
+      "description": "Почему тем нет или их мало: каких данных не хватило.",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "if": { "required": ["topics"], "properties": { "topics": { "maxItems": 0 } } },
+  "then": { "required": ["reasons"], "properties": { "reasons": { "minItems": 1 } } },
+  "$defs": {
+    "topic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "slug_hint", "keywords", "score", "reasons", "hub", "role", "intent", "evidence"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "slug_hint": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "keywords": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "reasons": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "hub": { "type": "string", "minLength": 1, "description": "Кластер/хаб, к которому относится тема." },
+        "role": { "enum": ["pillar", "support"] },
+        "intent": { "enum": ["informational", "commercial", "transactional", "navigational"] },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "ref"],
+            "properties": {
+              "type": { "enum": ["gsc", "yandex", "sitemap", "serp", "other"] },
+              "ref": { "type": "string", "minLength": 1, "description": "Запрос, URL или путь к выгрузке." },
+              "metric": { "type": "string", "description": "Наблюдённая метрика с периодом, например «показы 1200 за 28 дней»." }
+            }
+          }
+        }
+      }
+    }
+  }
+}

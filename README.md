@@ -24,6 +24,10 @@
 
 Полный процесс и владельцы этапов: [lifecycle](skills/seo-aieo/references/lifecycle.md). Устойчивые ID и передача между этапами: [identity handoff](skills/seo-aieo/references/identity-handoff.md). Необязательные внешние навыки (`competitor-analysis`, `humanizer-ru`) перечислены как **внешние зависимости**, а не часть пакета.
 
+## Режим service
+
+`seo-research-strategy`, `seo-content-operations` и `claim-verification` можно запускать из сервиса (Claude Agent SDK) без человека в чате: в рабочей папке лежит `service.json` с `mode: "service"`, навык не задаёт вопросов и пишет ровно один JSON-файл по схеме из [schemas/](schemas/README.md). Профиль сайта — по образцу [templates/site-profile.yaml](templates/site-profile.yaml). Публикаций и записей во внешние системы в этом режиме нет.
+
 ## Локальный запуск без установки навыков
 
 Нужны Python 3.13 и PyYAML из [requirements.txt](requirements.txt). Первые две утилиты ниже используют только стандартную библиотеку. Не устанавливайте зависимости в системный Python с PEP 668: выберите существующее подходящее окружение либо, с разрешения оператора, создайте venv:

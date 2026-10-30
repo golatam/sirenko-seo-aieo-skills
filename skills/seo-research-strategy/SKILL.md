@@ -57,6 +57,13 @@ Read [research-method](references/research-method.md) and [data-contracts](refer
 - **Output:** artifact paths, row/coverage counts, accepted decisions, provisional decisions, blockers and next owner. Templates contain headers/placeholders only; populate them with real evidence, not illustrative data.
 - **Verification/stop:** no duplicate primary query mapping in the same intent lane; no metric without provenance; no claim of exhaustive coverage from a sample. Fix failures or deliver a labeled partial artifact.
 
+## Service mode
+- **Recognize:** the prompt or the working folder has `service.json` with `mode: "service"`, a `profile`, `inputs` and one `output` path. Without it, work interactively as above.
+- **Behavior:** ask nothing in chat; take decisions from the profile and inputs and record assumptions in `reasons`. Follow [service mode](references/service-mode.md).
+- **Output:** exactly one JSON file at `output`, valid against `schemas/topics.schema.json` (plugin root). No other files, no Markdown report.
+- **Missing data:** write `"topics": []` with top-level `reasons`; never invent volumes or metrics.
+- **Boundaries:** no publishing, no paid calls, no network writes; read-only fetches only.
+
 ## Routing and Boundaries
 - `seo-site-architecture`: URL structure, hierarchy and internal-link implementation after mapping.
 - `technical-seo-audits`: crawl/index/canonical blockers and implementation verification.

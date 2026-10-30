@@ -1,7 +1,7 @@
 {
   "name": "seo-aieo",
   "description": "Полный SEO/AIEO-цикл для Claude Code: исследование, технический аудит, архитектура, контент, видимость в ответах ИИ, отчётность. 13 навыков, шаблоны и офлайн-утилиты.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Sirenko SEO/AIEO Skills contributors"
   },

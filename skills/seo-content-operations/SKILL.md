@@ -61,6 +61,13 @@ Load [editorial workflow](references/editorial-workflow.md) for production and r
 - **Output:** experiment section of improvement plan, measured result or `inconclusive`, decision and next review date. Hand authorized promotion drafts to `seo-authority-promotion`.
 - **Verification/stop:** no uplift claims from before/after alone; no assumed sample size, fabricated baseline or repeated peeking for a winner. Low traffic supports qualitative usability evidence, not a statistically proven lift.
 
+## Service mode
+- **Recognize:** the prompt or the working folder has `service.json` with `mode: "service"`, a `step` (`brief` or `article`), a `profile`, `inputs` and one `output` path. Without it, work interactively as above.
+- **Behavior:** ask nothing in chat; use the profile and inputs, record gaps in `reasons`. Follow [service mode](references/service-mode.md), [article template](references/article-template.md) and [QA checklist](references/qa-checklist.md).
+- **Output:** exactly one JSON file at `output`: `step: brief` → `schemas/brief.schema.json`, `step: article` → `schemas/article.schema.json` (plugin root). Every number or fact in the article is in `claims` with a `source_id`.
+- **Missing data:** narrow the brief or article to what sources support and say why in `reasons`; never invent figures, cases, quotes or author experience.
+- **Boundaries:** no CMS drafts, publishing, sending or other network writes; the service publishes after human approval.
+
 ## Pitfalls
 - Turning competitor headings into an outline without a reader task or evidence advantage.
 - Mistaking citations for fact-checking: a real URL can fail to support the nearby claim.

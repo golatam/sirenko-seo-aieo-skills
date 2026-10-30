@@ -1,0 +1,77 @@
+# Профиль сайта для режима service (и как справка для обычной работы).
+# Пример: значения вымышленные. Секретов здесь нет и быть не должно:
+# доступы задаются переменными окружения с префиксом из *_env_prefix.
+version: 1
+
+domain: example.com
+language: ru            # язык статей
+
+# Каждый рынок — отдельная «полоса»: поисковик, регион, язык и устройство не смешиваются.
+markets:
+  - engine: yandex      # yandex | google
+    country: RU
+    region: "Москва"    # регион поисковика, если важен; пусто — вся страна
+    language: ru
+    device: desktop     # desktop | mobile
+    provider: topvisor  # кто снимает позиции
+  - engine: google
+    country: RU
+    region: ""
+    language: ru
+    device: mobile
+    provider: dataforseo
+
+# Для кого пишем и какими словами говорит читатель.
+icp:
+  who: "Владельцы малого бизнеса, которые выходят на новый рынок"
+  vocabulary:
+    - "открыть компанию"
+    - "налоги для нерезидента"
+
+# Что продаём и как можно об этом говорить в статьях.
+product:
+  what: "Консультации и сопровождение регистрации компании"
+  constraints:
+    - "Не обещать сроки и результат"
+    - "Цены только со страницы тарифов, с датой"
+  mentions_max: 2       # сколько раз продукт можно упомянуть в одной статье
+
+competitors:
+  - domain: competitor-one.example
+    sitemap: https://competitor-one.example/sitemap.xml
+  - domain: competitor-two.example
+    sitemap: https://competitor-two.example/sitemap.xml
+
+# Темы и формулировки, с которыми бренд не должен появляться.
+brand_negatives:
+  - "серые схемы"
+
+# Настоящий автор. Опыт — только проверяемые факты; пусто лучше, чем выдумка.
+author:
+  name: "Иван Петров"
+  url: https://example.com/authors/ivan-petrov
+  linkedin: https://www.linkedin.com/in/example
+  photo: https://example.com/images/ivan-petrov.jpg
+  experience:
+    - "С 2018 года сопровождает регистрацию компаний"
+
+schedule:
+  articles_per_week: 2
+  days: [tue, thu]      # mon..sun
+
+mode: manual            # manual — каждую статью одобряет человек; auto — после одобрения первой
+budget_month_usd: 30    # потолок платных вызовов за месяц
+
+data_sources:
+  gsc:
+    property: "sc-domain:example.com"
+    credentials_env_prefix: EXAMPLE      # сервис читает EXAMPLE_* из окружения
+  yandex_webmaster:
+    host_id: "https:example.com:443"
+    credentials_env_prefix: EXAMPLE
+
+# Куда сервис отдаёт одобренную статью. Сами навыки ничего не публикуют.
+publishing:
+  type: api             # api | webhook
+  url: https://example.com/api/articles
+  credentials_env_prefix: EXAMPLE_PUBLISH

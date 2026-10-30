@@ -89,5 +89,33 @@ class PluginIconTests(unittest.TestCase):
         self.assertTrue(512 <= width <= 2048, width)
 
 
+class ServiceModeTests(unittest.TestCase):
+    SCHEMAS = ('topics', 'brief', 'article', 'qa')
+    SERVICE_SKILLS = ('seo-research-strategy', 'seo-content-operations', 'claim-verification')
+
+    def test_schemas_are_draft_2020_12_objects(self):
+        for name in self.SCHEMAS:
+            with self.subTest(schema=name):
+                data = json.loads((ROOT / 'schemas' / f'{name}.schema.json').read_text(encoding='utf-8'))
+                self.assertEqual(data['$schema'], 'https://json-schema.org/draft/2020-12/schema')
+                self.assertEqual(data['type'], 'object')
+                self.assertTrue(set(data['required']) <= set(data['properties']))
+
+    def test_service_skills_document_the_mode_and_schema(self):
+        for skill in self.SERVICE_SKILLS:
+            with self.subTest(skill=skill):
+                text = (ROOT / 'skills' / skill / 'SKILL.md').read_text(encoding='utf-8')
+                self.assertIn('mode: "service"', text)
+                for schema in re.findall(r'schemas/(\w+)\.schema\.json', text):
+                    self.assertIn(schema, self.SCHEMAS)
+
+    def test_site_profile_template_parses(self):
+        profile = yaml.safe_load((ROOT / 'templates' / 'site-profile.yaml').read_text(encoding='utf-8'))
+        for key in ('domain', 'language', 'markets', 'icp', 'product', 'competitors', 'brand_negatives',
+                    'author', 'schedule', 'mode', 'budget_month_usd', 'data_sources', 'publishing', 'version'):
+            self.assertIn(key, profile)
+        self.assertIn(profile['mode'], ('manual', 'auto'))
+
+
 if __name__ == '__main__':
     unittest.main()
